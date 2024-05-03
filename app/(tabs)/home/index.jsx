@@ -4,9 +4,12 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomButton from '../../../components/CustomButton'
 import { StatusBar } from 'expo-status-bar'
 import TrendingMovies from '../../../components/home/TrendingMovies'
+import MovieList from '../../../components/home/MovieList'
 
 const home = () => {
     const [trendingData, setTrendingData] = useState([1,2,3])
+    const [upcoming, setUpcoming] = useState([1,2,3,4,5])
+
     return (
         <View className="bg-[#12151c] flex-1">
             <SafeAreaView className="mb-3">
@@ -24,6 +27,8 @@ const home = () => {
 
             <ScrollView>
                 <TrendingMovies data={trendingData}/>
+                <MovieList title={"Upcoming"} data={upcoming}/>
+
             </ScrollView>
         </View>
     )
