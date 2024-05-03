@@ -1,16 +1,32 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView } from 'react-native'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomButton from '../../../components/CustomButton'
+import { StatusBar } from 'expo-status-bar'
+import TrendingMovies from '../../../components/home/TrendingMovies'
 
 const home = () => {
-  return (
-    <SafeAreaView>
-    <View className="flex justify-center items-center h-screen">
-      <Text className="text-red-600 font-semibold ">home Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis non quis quidem quos sequi, voluptatibus ullam eius adipisci. Aliquam quaerat, doloribus eaque natus neque error inventore nulla magnam ea eligendi sapiente ex beatae minima?</Text>
-    </View>
-    </SafeAreaView>
-  )
+    const [trendingData, setTrendingData] = useState([1,2,3])
+    return (
+        <View className="bg-[#12151c] flex-1">
+            <SafeAreaView className="mb-3">
+                <StatusBar style='light'/>
+                <View className="flex-row justify-between items-center mx-4 mt-3">
+                    <Text className="text-4xl font-bold text-white">=</Text>
+
+                    <Text className="text-4xl font-bold text-orange-300">R<Text className="text-white">MDB</Text></Text>
+
+                    <Text className="text-4xl font-bold text-white">S</Text>
+
+
+                </View>
+            </SafeAreaView>
+
+            <ScrollView>
+                <TrendingMovies data={trendingData}/>
+            </ScrollView>
+        </View>
+    )
 }
 
 export default home

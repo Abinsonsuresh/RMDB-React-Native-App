@@ -1,7 +1,7 @@
 import { View, Text, Image } from 'react-native'
 import { Tabs } from 'expo-router'
-
 import { icons } from '../../constants'
+
 const TabLayout = () => {
     const TabIcon = ({ icon, name, color, focused }) => {
         return (
