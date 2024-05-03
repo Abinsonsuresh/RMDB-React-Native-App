@@ -8,7 +8,6 @@ const home = () => {
     <SafeAreaView>
     <View className="flex justify-center items-center h-screen">
       <Text className="text-red-600 font-semibold ">home Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis non quis quidem quos sequi, voluptatibus ullam eius adipisci. Aliquam quaerat, doloribus eaque natus neque error inventore nulla magnam ea eligendi sapiente ex beatae minima?</Text>
-      <CustomButton title={"Hello"}/>
     </View>
     </SafeAreaView>
   )
