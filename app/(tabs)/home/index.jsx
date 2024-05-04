@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar'
 import TrendingMovies from '../../../components/home/TrendingMovies'
 import MovieList from '../../../components/home/MovieList'
 import useFetch from '../../../utils/useFetch'
+import { EvilIcons } from '@expo/vector-icons'
 
 
 
@@ -45,7 +46,7 @@ const home = ({ navigation }) => {
 
                         <Text className="text-2xl  font-bold text-orange-300">R<Text className="text-white">MDB</Text></Text>
 
-                        <Text className="text-4xl font-bold text-white">S</Text>
+                        <EvilIcons name="search" size={24} color="white" />
                     </View>
                 </SafeAreaView>
 

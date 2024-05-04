@@ -1,7 +1,8 @@
 import { View, Text, Image } from 'react-native'
 import { Tabs } from 'expo-router'
 import { icons } from '../../constants'
-
+import { EvilIcons } from '@expo/vector-icons';
+import { HomeIcon, MovieIcon, SearchIcon, TVIcon } from '../../constants/icons';
 const TabLayout = () => {
     const TabIcon = ({ icon, name, color, focused }) => {
         return (
@@ -28,11 +29,15 @@ const TabLayout = () => {
             <Tabs.Screen
                 name="home"
                 options={{
-                    title: "Home",
+                    title: 'Home',
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabIcon icon={icons.home} color={"white"} name="Home" focused={focused}
-                        />
+                    tabBarIcon: ({ color, focused, size }) => (
+                        <View style={{ alignItems: 'center', justifyContent: 'center', gap: 2 }}>
+                            <HomeIcon color={color} size={24} />
+                            <Text style={{ color: focused ? '#007AFF' : '#8E8E93', fontSize: 12 }}>
+                                <Text  className={`${focused ? 'font-psemibold items-center text-orange-400' : 'font-pregular text-xs text-white'}`}>Home</Text>
+                            </Text>
+                        </View>
                     ),
                 }}
             />
@@ -43,9 +48,13 @@ const TabLayout = () => {
                 options={{
                     title: "search",
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabIcon icon={icons.search} color={"white"} name="Search" focused={focused}
-                        />
+                    tabBarIcon: ({ color, focused, size }) => (
+                        <View style={{ alignItems: 'center', justifyContent: 'center', gap: 2 }}>
+                            <SearchIcon color={color} size={24} />
+                            <Text style={{ color: focused ? '#007AFF' : '#8E8E93', fontSize: 12 }}>
+                                <Text  className={`${focused ? 'font-psemibold items-center text-orange-400' : 'font-pregular text-xs text-white'}`}>Search</Text>
+                            </Text>
+                        </View>
                     ),
                 }}
             />
@@ -56,9 +65,13 @@ const TabLayout = () => {
                 options={{
                     title: "Movies",
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabIcon icon={icons.home} color={"white"} name="Movies" focused={focused}
-                        />
+                    tabBarIcon: ({ color, focused, size }) => (
+                        <View style={{ alignItems: 'center', justifyContent: 'center', gap: 2 }}>
+                            <MovieIcon color={color} size={24} />
+                            <Text style={{ color: focused ? '#007AFF' : '#8E8E93', fontSize: 12 }}>
+                                <Text  className={`${focused ? 'font-psemibold items-center text-orange-400' : 'font-pregular text-xs text-white'}`}>Movies</Text>
+                            </Text>
+                        </View>
                     ),
                 }}
             />
@@ -70,9 +83,13 @@ const TabLayout = () => {
                 options={{
                     title: "TV Shows",
                     headerShown: false,
-                    tabBarIcon: ({ color, focused }) => (
-                        <TabIcon icon={icons.home} color={"white"} name="TV Shows" focused={focused}
-                        />
+                    tabBarIcon: ({ color, focused, size }) => (
+                        <View style={{ alignItems: 'center', justifyContent: 'center', gap: 2 }}>
+                            <TVIcon color={color} size={24} />
+                            <Text style={{ color: focused ? '#007AFF' : '#8E8E93', fontSize: 12 }}>
+                                <Text  className={`${focused ? 'font-psemibold items-center text-orange-400' : 'font-pregular text-xs text-white'}`}>TV Shows</Text>
+                            </Text>
+                        </View>
                     ),
                 }}
             />
