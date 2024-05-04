@@ -2,9 +2,12 @@ import { View, Text, TouchableWithoutFeedback, Image, Dimensions } from 'react-n
 import React from 'react'
 import Carousel from 'react-native-snap-carousel'
 import { images } from '../../constants'
+import useFetch from '../../utils/useFetch'
+import { image500 } from '../../utils/apiFetch'
 
 let {width, height} = Dimensions.get('window')
 const TrendingMovies = ({ data }) => {
+    console.log(data)
     const onClickHandler = () =>{
 
     }
@@ -21,10 +24,12 @@ const TrendingMovies = ({ data }) => {
 export default TrendingMovies
 
 const MovieCard = ({item, handler}) => {
+    const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/original" + item.poster_path : "";
+    console.log(item.poster_path)
     return(
     <TouchableWithoutFeedback onPress={handler}>
         {/* <Text className="text-white">Movie</Text> */}
-        <Image source={images.cards} style={{width: width*0.6, height: height*0.6 }} className="rounded-2xl"/>
+        <Image source={{uri: posterUrl}} style={{width: width*0.6, height: height*0.6 }} className="rounded-2xl"/>
     </TouchableWithoutFeedback>
     )
 }
