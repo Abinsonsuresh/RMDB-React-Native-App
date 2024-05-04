@@ -7,6 +7,8 @@ import TrendingMovies from '../../../components/home/TrendingMovies'
 import MovieList from '../../../components/home/MovieList'
 import useFetch from '../../../utils/useFetch'
 import { EvilIcons } from '@expo/vector-icons'
+import { roundToNearestPixel } from 'nativewind'
+import { router } from 'expo-router'
 
 
 
@@ -53,7 +55,7 @@ const home = ({ navigation }) => {
 
                         <Text className="text-2xl  font-bold text-orange-300">R<Text className="text-white">MDB</Text></Text>
 
-                        <EvilIcons name="search" size={24} color="white" />
+                        <EvilIcons onPress={()=> router.push("/search")} name="search" size={24} color="white" />
                     </View>
                 </SafeAreaView>
 
