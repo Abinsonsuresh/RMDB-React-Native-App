@@ -19,6 +19,9 @@ const TabLayout = () => {
                 borderTopWidth: 1,
                 borderTopColor: "#232533",
                 height: 60,
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center"
             },
         }}>
             {/* Home tab */}
