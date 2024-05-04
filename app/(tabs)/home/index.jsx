@@ -12,12 +12,17 @@ import { EvilIcons } from '@expo/vector-icons'
 
 const home = ({ navigation }) => {
     const { data: populardata, loading: popularLoading } = useFetch(`/movie/popular`)
+    const { data: tvdata, loading: tvloading } = useFetch(`/tv/popular`)
+
     const { data: top_rated, loading: top_ratedloading } = useFetch(`/movie/top_rated`)
     const { data: Trendingdata, loading: TrendingLoading } = useFetch(`/trending/all/day`)
 
     const [trendingData, setTrendingData] = useState(null)
     const [popular, setPopular] = useState(null)
     const [topRated, setTopRated] = useState(null)
+    const [upcoming, setUpcoming] = useState(null)
+    const [popularTv, setPopularTv] = useState(null)
+
 
 
     // console.log("POPU", topRated)
@@ -31,10 +36,12 @@ const home = ({ navigation }) => {
         if (!top_ratedloading) {
             setTopRated(top_rated?.results)
         }
+        if (!tvloading) {
+            setPopularTv(tvdata?.results)
+        }
     }, [popularLoading, populardata, TrendingLoading, Trendingdata, top_rated, top_ratedloading])
 
 
-    const [upcoming, setUpcoming] = useState([1, 2, 3, 4, 5])
 
     return (
         <>
@@ -42,7 +49,7 @@ const home = ({ navigation }) => {
                 <SafeAreaView className="mb-3">
                     <StatusBar style='light' />
                     <View className="flex-row justify-between items-center mx-4 mt-3">
-                     
+
 
                         <Text className="text-2xl  font-bold text-orange-300">R<Text className="text-white">MDB</Text></Text>
 
@@ -60,6 +67,9 @@ const home = ({ navigation }) => {
                     {
                         topRated &&
                         <MovieList title={"Top Rated"} type={"movie"} data={topRated} />
+                    }
+                    {
+                        popularTv &&  <MovieList title={"Popular TV Shows"} type={"tv"} data={popularTv} />
                     }
                 </ScrollView>
             </View>
