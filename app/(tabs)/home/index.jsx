@@ -8,14 +8,24 @@ import MovieList from '../../../components/home/MovieList'
 import useFetch from '../../../utils/useFetch'
 
 const home = () => {
-    const { data, loading } = useFetch(`/movie/popular`)
-    // console.log(data)
+    const { data: populardata, loading: popularLoading } = useFetch(`/movie/popular`)
+
+    const { data: Trendingdata, loading: TrendingLoading } = useFetch(`/trending/all/day`)
     const [trendingData, setTrendingData] = useState(null)
+    const [popular, setPopular] = useState(null)
+    
+    console.log("POPU",popular)
     useEffect(()=>{
-        if (!loading) {
-            setTrendingData(data?.results)
+        if (!popularLoading) {
+            setPopular(populardata?.results)
         }
-    },[loading,data])
+    },[popularLoading,populardata])
+
+    useEffect(()=>{
+        if (!TrendingLoading) {
+            setTrendingData(Trendingdata?.results)
+        }
+    },[TrendingLoading,Trendingdata])
     const [upcoming, setUpcoming] = useState([1, 2, 3, 4, 5])
 
     return (
@@ -35,7 +45,10 @@ const home = () => {
 
             <ScrollView>
                 <TrendingMovies data={trendingData} />
-                <MovieList title={"Upcoming"} data={upcoming} />
+                {
+                popular && 
+                <MovieList title={"Popular"} data={popular} />
+                }
 
             </ScrollView>
         </View>
