@@ -13,7 +13,7 @@ const TrendingMovies = ({ data }) => {
     }
     return (
         <View>
-            <Text className="text-white px-4 mb-3 text-xl font-bold">Trending</Text>
+            <Text className=" px-4 mb-3 text-2xl text-center text-orange-300 font-bold">Trending Today</Text>
             <Carousel data={data} renderItem={({ item }) => <MovieCard item={item} handler={onClickHandler} />}
             inactiveSlideOpacity={0.60}
              firstItem={1} sliderWidth={width} itemWidth={width*0.62} slideStyle={{ display: "flex", alignItems: "center" }} />

@@ -51,7 +51,45 @@ const index = () => {
                 <Text className='text-2xl text-white font-semibold'>Overview</Text>
                 <Text className='text-sm text-white  mt-4 '>{data.overview}</Text>
               </View>
+
+
+              {
+                data.status && (
+                  <View className='my-2 '>
+                    <Text className='text-lg font-semibold text-white'>Status: </Text>
+                    <Text className='text-lg font-semibold text-gray-500'>{data.status}</Text>
+                  </View>
+                )
+              }
+
+
+              {
+                data.release_date && (
+                  <View className='my-2 '>
+                    <Text className='text-lg font-semibold text-white'>Release Date:</Text>
+                    <Text className='text-lg font-semibold text-gray-500'>{data.release_date}</Text>
+                  </View>
+                )
+              }
+
+              {
+                data.runtime && (
+                  <View className='my-2  '>
+                    <Text className='text-lg font-semibold text-white'>Runtime:</Text>
+                    <Text className='text-lg font-semibold text-gray-500'>{data.runtime}mins</Text>
+                  </View>
+                )
+              }
+
+              {
+                data?.revenue ? (<> <View>
+                  <Text className='text-lg font-semibold text-gray-500'>{data?.revenue === 0 ? "undisclosed" :(data?.revenue)}</Text>
+                </View> </>) : (<View>
+                  <Text className='text-lg font-semibold text-gray-500'>undisclosed</Text>
+                </View>)
+              }
             </View>
+
 
           </View>
 
