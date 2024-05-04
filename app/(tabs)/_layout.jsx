@@ -44,7 +44,7 @@ const TabLayout = () => {
 
             {/* Home tab */}
             <Tabs.Screen
-                name="fav"
+                name="search"
                 options={{
                     title: "search",
                     headerShown: false,

@@ -36,14 +36,14 @@ const index = () => {
             <View className="flex justify-center items-center">
               <Image source={{ uri: posterUrl }} className='max-w-[350px] rounded-xl w-[400px] h-[600px]' alt="" />
               <Image className="rounded-t-lg" source={{ uri: posterUrl }} />
-              <Text className="text-white font-pmedium mt-2 p-2">{data.original_title || data.title || data.name}</Text>
+              <Text className="text-white text-2xl font-pmedium mt-2 p-2">{data.original_title || data.title || data.name}</Text>
               {/* <Text className="text-white font-pthin p-2">{type}</Text> */}
-              <Text className='text-md md:text-xl text-white font-thin italic'>{data?.tagline}</Text>
+              <Text className='text-xl text-white font-thin italic'>{data?.tagline}</Text>
 
             </View>
 
             <View className="flex flex-col mt-6 justify-start items-start text-white p-4">
-              <Text className="text-white">
+              <Text className="text-white text-2xl">
                 {rating}/5
               </Text>
 
@@ -82,9 +82,14 @@ const index = () => {
               }
 
               {
-                data?.revenue ? (<> <View>
-                  <Text className='text-lg font-semibold text-gray-500'>{data?.revenue === 0 ? "undisclosed" :(data?.revenue)}</Text>
-                </View> </>) : (<View>
+                data?.revenue ? (
+                <View>
+                  <Text className='text-lg font-semibold text-white'>Revenue:</Text>
+                  <View className=''>
+                    {data?.revenue === 0 ? (<Text className="text-lg font-semibold text-gray-500">undisclosed</Text>) : (<Text className="text-lg font-semibold text-gray-500">${data.revenue}</Text>)}    
+                    </View>
+                </View>
+                ) : (<View>
                   <Text className='text-lg font-semibold text-gray-500'>undisclosed</Text>
                 </View>)
               }
