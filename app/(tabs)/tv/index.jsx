@@ -19,7 +19,7 @@ const TVScreen = () => {
 
   const MovieCard = ({ item }) => {
     const posterUrl = item?.poster_path ? "https://image.tmdb.org/t/p/original" + item?.poster_path : "";
-    const title = item?.title?.length > 15 ? item?.title.slice(0, 15) + ".." : item?.title
+    const title = item?.name?.length > 15 || item?.title?.length > 15 ? item?.name?.slice(0,15) || item?.title?.slice(0,15) + ".." : item?.name || item?.title
 const type= "tv"
     return (
       <TouchableWithoutFeedback onPress={() => router.push(`../details?id=${item.id}&type=${type}`)}>

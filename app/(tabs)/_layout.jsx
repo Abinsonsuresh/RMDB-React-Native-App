@@ -19,7 +19,7 @@ const TabLayout = () => {
                 backgroundColor: "#161622",
                 borderTopWidth: 1,
                 borderTopColor: "#232533",
-                height: 60,
+                height: 80,
                 display: "flex",
                 justifyContent: "center",
                 alignContent: "center"
